@@ -205,7 +205,6 @@ export default function InvitationCard() {
             className="veena-img"
           />
         </div>
-        <p className="veena-caption">🎵 &nbsp; भजन — कीर्तन — अभंग &nbsp; 🎵</p>
       </div>
 
       {/* ══════════════════════════════════
