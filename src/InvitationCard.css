@@ -1,0 +1,1027 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --saffron:    #D96B27;
+  --saffron-dk: #B85520;
+  --saffron-lt: #F0884A;
+  --cream:      #FFF8E7;
+  --cream-dk:   #F0E0C0;
+  --turmeric:   #E8A020;
+  --brown:      #3D1F0A;
+  --brown-lt:   #6B4226;
+  --gold:       #C89B3C;
+  --gold-lt:    #E0BC5A;
+  --white:      #FFFFFF;
+  --text-dark:  #2A1206;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Serif Devanagari', serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ────────────────────────────────────
+   STICKY TOP CHANT BAR
+──────────────────────────────────── */
+.chant-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--saffron);
+  padding: 9px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid var(--gold);
+}
+
+.chant-track {
+  display: inline-flex;
+  gap: 40px;
+  animation: ticker 22s linear infinite;
+}
+
+.chant-bar:hover .chant-track {
+  animation-play-state: paused;
+}
+
+.chant-item {
+  font-size: clamp(14px, 3vw, 18px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+
+.chant-dot {
+  color: rgba(255,255,255,0.5);
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ────────────────────────────────────
+   HERO SECTION
+──────────────────────────────────── */
+.hero {
+  background: linear-gradient(180deg, #3D1F0A 0%, #6B3010 40%, #D96B27 100%);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 60px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Subtle dot pattern */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(200,155,60,0.12) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Gold border lines along sides */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1.5px solid rgba(200,155,60,0.3);
+  pointer-events: none;
+}
+
+.hero-om {
+  font-size: clamp(14px, 3.5vw, 18px);
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 6px;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-header {
+  font-size: clamp(20px, 5vw, 30px);
+  font-weight: 900;
+  color: var(--gold-lt);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Flags + image row */
+.hero-visual {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 24px;
+}
+
+.bhagwa-flag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: 10px;
+}
+
+.flag-pole-svg {
+  width: 4px;
+  background: var(--gold);
+  height: clamp(80px, 18vw, 130px);
+  border-radius: 2px;
+}
+
+.flag-cloth-svg {
+  position: relative;
+  width: clamp(36px, 9vw, 60px);
+  height: clamp(28px, 7vw, 46px);
+  background: var(--saffron-lt);
+  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%);
+  animation: flagWave 2.8s ease-in-out infinite;
+  transform-origin: left center;
+  margin-top: -2px;
+  align-self: flex-start;
+}
+
+.flag-cloth-svg.right {
+  transform: scaleX(-1);
+  animation-delay: 0.5s;
+  transform-origin: right center;
+}
+
+@keyframes flagWave {
+  0%,100% { clip-path: polygon(0 0, 100% 20%, 100% 80%, 0 100%); }
+  40%     { clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%); }
+  70%     { clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%); }
+}
+
+.ganpati-circle {
+  position: relative;
+  width: clamp(180px, 46vw, 300px);
+  height: clamp(180px, 46vw, 300px);
+}
+
+.ganpati-halo {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 0 8px rgba(200,155,60,0.1), 0 0 30px rgba(217,107,39,0.3);
+}
+
+.ganpati-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(200,155,60,0.6);
+  animation: spinSlow 20s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.ganpati-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid var(--cream-dk);
+  display: block;
+}
+
+.hero-vitthal {
+  font-size: clamp(14px, 3.5vw, 20px);
+  font-weight: 700;
+  color: var(--gold-lt);
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 28px;
+}
+
+.hero-title-main {
+  font-size: clamp(32px, 9vw, 62px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 3px 12px rgba(0,0,0,0.4);
+}
+
+.hero-title-accent {
+  font-size: clamp(32px, 9vw, 62px);
+  font-weight: 900;
+  color: var(--gold-lt);
+  line-height: 1.1;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 3px 12px rgba(0,0,0,0.4);
+}
+
+.hero-sub {
+  font-size: clamp(14px, 3.5vw, 20px);
+  color: rgba(255,255,255,0.8);
+  font-weight: 600;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+
+/* ── ∥ संत संस्कृती ∥ badge ── */
+.sant-sankruti-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  border: 2px solid var(--gold-lt);
+  border-radius: 6px;
+  padding: 10px 28px;
+  margin-top: 18px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(200,155,60,0.2), 0 4px 20px rgba(0,0,0,0.35);
+}
+
+.sant-pipe {
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 900;
+  color: var(--brown);
+  line-height: 1;
+}
+
+.sant-text {
+  font-size: clamp(18px, 5vw, 26px);
+  font-weight: 900;
+  color: var(--brown);
+  letter-spacing: 3px;
+}
+
+/* ── रंगी रंगला श्रीरंग ── */
+.shrirang-line {
+  font-size: clamp(17px, 4.5vw, 24px);
+  font-weight: 800;
+  font-style: italic;
+  color: var(--gold-lt);
+  letter-spacing: 2px;
+  margin-top: 12px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 18px rgba(224,188,90,0.55), 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  z-index: 2;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%     { transform: translateX(-50%) translateY(-6px); }
+}
+
+/* ────────────────────────────────────
+   SECTION BASE
+──────────────────────────────────── */
+section {
+  padding: clamp(40px, 8vw, 80px) clamp(20px, 6vw, 60px);
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.divider-ornament {
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* ────────────────────────────────────
+   INVITATION BODY SECTION
+──────────────────────────────────── */
+.invite-section {
+  background: var(--cream);
+}
+
+.invite-box {
+  background: rgba(200,155,60,0.07);
+  border: 2px solid rgba(200,155,60,0.35);
+  border-radius: 12px;
+  padding: clamp(24px, 5vw, 44px) clamp(24px, 6vw, 52px);
+  text-align: center;
+  position: relative;
+}
+
+.invite-box-icon {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  padding: 0 14px;
+  font-size: 22px;
+}
+
+.invite-heading {
+  font-size: clamp(13px, 3vw, 17px);
+  letter-spacing: 5px;
+  color: var(--saffron);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.invite-para {
+  font-size: clamp(17px, 4vw, 24px);
+  color: var(--text-dark);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.invite-para + .invite-para {
+  margin-top: 18px;
+}
+
+.invite-para strong {
+  color: var(--brown);
+  font-weight: 700;
+}
+
+.invite-namra {
+  margin-top: 22px;
+  font-size: clamp(17px, 4vw, 24px);
+  font-weight: 800;
+  color: var(--saffron);
+  font-style: italic;
+}
+
+/* ────────────────────────────────────
+   BHOJAN SECTION
+──────────────────────────────────── */
+.bhojan-section-outer {
+  background: var(--brown);
+  padding: clamp(40px, 8vw, 70px) clamp(20px, 6vw, 60px);
+}
+
+.bhojan-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bhojan-sec-label {
+  font-size: clamp(13px, 3vw, 16px);
+  letter-spacing: 5px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.bhojan-sec-title {
+  font-size: clamp(24px, 7vw, 42px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+
+.bhojan-card {
+  display: inline-block;
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: clamp(24px, 5vw, 40px) clamp(32px, 8vw, 80px);
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(4px);
+}
+
+.bhojan-card::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(200,155,60,0.3);
+  border-radius: 10px;
+}
+
+.bhojan-date-text {
+  font-size: clamp(17px, 4.5vw, 28px);
+  color: var(--gold-lt);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.bhojan-time-text {
+  font-size: clamp(32px, 9vw, 56px);
+  color: var(--white);
+  font-weight: 900;
+  margin-top: 6px;
+  letter-spacing: 2px;
+}
+
+.bhojan-time-sub {
+  font-size: clamp(13px, 3vw, 17px);
+  color: rgba(255,255,255,0.55);
+  margin-top: 4px;
+}
+
+/* ────────────────────────────────────
+   निमंत्रक SECTION
+──────────────────────────────────── */
+.nimantrak-section {
+  background: var(--cream);
+  padding: clamp(40px, 8vw, 70px) clamp(20px, 6vw, 60px);
+  max-width: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.nimantrak-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 2px solid rgba(200,155,60,0.35);
+  border-radius: 16px;
+  padding: clamp(28px, 6vw, 48px) clamp(24px, 6vw, 60px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 24px rgba(61,31,10,0.08);
+}
+
+.nimantrak-icon {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+.nimantrak-label {
+  font-size: clamp(20px, 5vw, 28px);
+  letter-spacing: 4px;
+  color: var(--saffron);
+  font-weight: 900;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--saffron);
+  padding-bottom: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+.nimantrak-name {
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 800;
+  color: var(--brown);
+  line-height: 1.4;
+}
+
+.nimantrak-aani {
+  font-size: clamp(15px, 3.5vw, 18px);
+  color: var(--brown-lt);
+  font-weight: 500;
+}
+
+.nimantrak-family {
+  font-size: clamp(18px, 4.5vw, 24px);
+  font-weight: 900;
+  color: var(--saffron-dk);
+  letter-spacing: 1px;
+}
+
+/* ────────────────────────────────────
+   स्थळ SECTION
+──────────────────────────────────── */
+.sthal-section {
+  background: linear-gradient(135deg, #3D1F0A 0%, #6B3010 100%);
+  padding: clamp(40px, 8vw, 70px) clamp(20px, 6vw, 60px);
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+}
+
+.sthal-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Image on left */
+.aamche-ghar-side {
+  flex: 0 0 auto;
+  width: clamp(140px, 38vw, 220px);
+}
+
+.aamche-ghar-side .aamche-ghar-img {
+  width: 100%;
+  margin: 0;
+}
+
+/* Text on right */
+.sthal-text-col {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+}
+
+.sthal-label {
+  font-size: clamp(18px, 5vw, 26px);
+  letter-spacing: 4px;
+  color: var(--gold);
+  font-weight: 900;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+.sthal-name {
+  font-size: clamp(28px, 8vw, 48px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.sthal-city {
+  font-size: clamp(16px, 4vw, 22px);
+  color: var(--gold-lt);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.info-card-venue {
+  font-size: clamp(17px, 4vw, 22px);
+  font-weight: 700;
+  color: var(--brown);
+  line-height: 1.55;
+}
+
+/* ── Location pin button ── */
+.location-pin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--saffron);
+  color: var(--white);
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(14px, 3.5vw, 17px);
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 22px;
+  margin-top: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(217,107,39,0.4);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  letter-spacing: 1px;
+}
+
+.location-pin-btn:hover,
+.location-pin-btn:active {
+  background: var(--saffron-dk);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217,107,39,0.55);
+}
+
+.location-pin-icon {
+  font-size: 18px;
+  animation: pinBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes pinBounce {
+  0%,100% { transform: translateY(0); }
+  40%     { transform: translateY(-4px); }
+  60%     { transform: translateY(-2px); }
+}
+
+/* ────────────────────────────────────
+   CONTACT SECTION
+──────────────────────────────────── */
+.contact-section-outer {
+  background: var(--cream);
+  padding: clamp(36px, 7vw, 60px) clamp(20px, 6vw, 60px);
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-size: clamp(13px, 3vw, 16px);
+  letter-spacing: 5px;
+  color: var(--saffron);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.contact-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--brown);
+  color: var(--white);
+  font-size: clamp(16px, 4vw, 22px);
+  font-weight: 700;
+  font-family: 'Noto Serif Devanagari', serif;
+  border: 2px solid var(--gold);
+  border-radius: 50px;
+  padding: 12px 28px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.contact-pill:hover {
+  background: var(--brown-lt);
+  transform: translateY(-2px);
+}
+
+.contact-pill-icon {
+  font-size: 20px;
+}
+
+/* ────────────────────────────────────
+   WARI ROUTE SECTION
+──────────────────────────────────── */
+.wari-section {
+  background: linear-gradient(135deg, #2A1206 0%, #4A2210 100%);
+  padding: clamp(36px, 7vw, 60px) clamp(20px, 6vw, 60px);
+  text-align: center;
+}
+
+.wari-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.wari-heading-label {
+  font-size: clamp(13px, 3vw, 16px);
+  letter-spacing: 5px;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.wari-heading {
+  font-size: clamp(20px, 5.5vw, 32px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+
+.wari-route-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.wari-stop-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(200,155,60,0.35);
+  border-radius: 10px;
+  padding: 10px 16px;
+  min-width: 80px;
+}
+
+.wari-stop-icon {
+  font-size: 22px;
+}
+
+.wari-stop-name {
+  font-size: clamp(13px, 3vw, 17px);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.wari-stop-tag {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.wari-arrow {
+  font-size: 20px;
+  color: var(--saffron-lt);
+  flex-shrink: 0;
+}
+
+.wari-final-chant {
+  font-size: clamp(18px, 5vw, 28px);
+  font-weight: 900;
+  color: var(--gold-lt);
+  letter-spacing: 3px;
+  margin-top: 12px;
+}
+
+/* ────────────────────────────────────
+   DINDI FOOTER
+──────────────────────────────────── */
+.dindi-footer {
+  background: var(--saffron);
+  border-top: 3px solid var(--gold);
+  padding: 0;
+  overflow: hidden;
+}
+
+.footer-chant {
+  background: var(--brown);
+  padding: clamp(18px, 4vw, 28px) 20px;
+  text-align: center;
+  font-size: clamp(14px, 3.5vw, 20px);
+  font-weight: 800;
+  color: var(--gold-lt);
+  letter-spacing: 2px;
+  border-top: 2px solid var(--gold);
+}
+
+/* ────────────────────────────────────
+   HERO — Pandharpur Warkari Logo
+──────────────────────────────────── */
+.hero-warkari-logo {
+  width: clamp(100px, 26vw, 160px);
+  height: clamp(100px, 26vw, 160px);
+  object-fit: contain;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+
+/* ────────────────────────────────────
+   VEENA SINGER — Circular Rotating
+──────────────────────────────────── */
+.veena-section {
+  background: var(--cream-dk);
+  padding: clamp(36px, 7vw, 60px) 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-top: 3px solid rgba(200,155,60,0.3);
+  border-bottom: 3px solid rgba(200,155,60,0.3);
+}
+
+.veena-circle-wrap {
+  position: relative;
+  /* size based on the image — square container so nothing gets cropped */
+  width: clamp(260px, 68vw, 380px);
+  height: clamp(260px, 68vw, 380px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spinning dashed ring — goes AROUND the image, rotates */
+.veena-spin-ring {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  border: 4px dashed var(--saffron);
+  pointer-events: none;
+}
+
+/* Static gold outer glow ring */
+.veena-gold-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 0 0 10px rgba(200,155,60,0.08),
+    0 0 30px rgba(217,107,39,0.18);
+  pointer-events: none;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Image — full square, no cropping, fully visible */
+.veena-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* show entire image — no cut hands */
+  object-position: center;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 20px rgba(61,31,10,0.22));
+  animation: spinRing 7s linear infinite;   /* ← image itself rotates 360° */
+}
+
+.veena-caption {
+  font-size: clamp(16px, 4vw, 22px);
+  font-weight: 700;
+  color: var(--brown);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* ────────────────────────────────────
+   WARI SECTION — Warkari Man Image
+──────────────────────────────────── */
+.wari-man-wrap {
+  margin: 0 auto 24px;
+  width: clamp(180px, 50vw, 280px);
+}
+
+.wari-man-img {
+  width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.5));
+  display: block;
+}
+
+/* ── गण गण गणात बोते — in invite box ── */
+.gan-gan-img {
+  width: clamp(100px, 28vw, 160px);
+  height: clamp(100px, 28vw, 160px);
+  object-fit: contain;
+  display: block;
+  margin: 16px auto 0;
+  filter: drop-shadow(0 2px 8px rgba(61,31,10,0.18));
+}
+
+/* ── Warkari grandfather + child — in nimantrak card ── */
+.nimantrak-family-img {
+  width: clamp(160px, 48vw, 280px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px;
+  filter: drop-shadow(0 2px 12px rgba(61,31,10,0.15));
+}
+
+/* ── Pandharpur Temple — in wari section ── */
+.pandharpur-temple-img {
+  width: clamp(240px, 72vw, 480px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.45));
+}
+
+/* ── श्री संत नामदेव महाद्वार — Real temple photo ── */
+.namdev-temple-wrap {
+  margin-top: 28px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.namdev-temple-label {
+  font-size: clamp(14px, 3.5vw, 20px);
+  font-weight: 800;
+  color: var(--gold-lt);
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.namdev-temple-img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 0 0 6px rgba(200,155,60,0.15),
+    0 8px 40px rgba(0,0,0,0.55);
+}
+
+/* ── आमचे घर येथे — sthal section image ── */
+.aamche-ghar-img {
+  width: clamp(260px, 78vw, 500px);
+  object-fit: contain;
+  display: block;
+  margin: 8px auto 4px;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.2));
+}
+
+/* ────────────────────────────────────
+   FLOATING MUSIC BUTTON
+──────────────────────────────────── */
+.music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: var(--brown);
+  border: 2px solid var(--gold);
+  border-radius: 50px;
+  padding: 10px 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+  transition: transform 0.2s, background 0.2s;
+  font-family: 'Noto Serif Devanagari', serif;
+}
+
+.music-btn:hover {
+  transform: scale(1.08);
+  background: var(--brown-lt);
+}
+
+.music-btn-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.music-btn-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+/* Glowing pulse when playing */
+.music-btn--playing {
+  border-color: var(--saffron-lt);
+  animation: musicPulse 2s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(217,107,39,0.5); }
+  50%     { box-shadow: 0 0 0 10px rgba(217,107,39,0); }
+}
