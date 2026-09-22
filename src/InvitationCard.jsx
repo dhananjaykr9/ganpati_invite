@@ -10,6 +10,8 @@ const IMG_GRANDPA_CHILD = '/ChatGPT Image Sep 22, 2026, 10_55_30 AM.png';
 const IMG_GAN_GAN = '/ChatGPT Image Sep 22, 2026, 10_56_48 AM.png';
 const IMG_NAMDEV_TEMPLE = '/ChatGPT Image Sep 22, 2026, 11_10_22 AM.png';
 const IMG_AAMCHE_GHAR = '/ChatGPT Image Sep 22, 2026, 11_15_21 AM.png';  // आमचे घर येथे — sthal section
+const IMG_HOME_GANPATI = '/Our_Home_Ganpati.png';  // आमचे गणपती — real photo
+const VID_HOME_GANPATI = '/WhatsApp Video 2026-09-22 at 14.00.14.mp4';  // आमचे गणपती — video
 
 /* ─── Wari route stops ─── */
 const WARI_ROUTE = [
@@ -48,7 +50,19 @@ function Divider({ ornament = '❖' }) {
 
 export default function InvitationCard() {
   const audioRef = useRef(null);
+  const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
+
+  /* Force video audio completely muted */
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.volume = 0;
+    vid.muted = true;
+    const enforcer = () => { vid.volume = 0; vid.muted = true; };
+    vid.addEventListener('volumechange', enforcer);
+    return () => vid.removeEventListener('volumechange', enforcer);
+  }, []);
 
   /* Try autoplay on mount */
   useEffect(() => {
@@ -191,6 +205,38 @@ export default function InvitationCard() {
       </section>
 
       {/* ══════════════════════════════════
+          आमचे गणपती — HOME GANPATI SHOWCASE
+      ══════════════════════════════════ */}
+      <section className="home-ganpati-section" id="home-ganpati">
+        <Divider ornament="🌺" />
+        <h2 className="home-ganpati-title">🙏 आमचा गणपती 🙏</h2>
+
+        <div className="home-ganpati-photo-wrap">
+          <img
+            src={IMG_HOME_GANPATI}
+            alt="आमच्या घरचे गणपती बाप्पा"
+            className="home-ganpati-photo"
+          />
+        </div>
+
+        <div className="home-ganpati-video-wrap">
+          <video
+            ref={videoRef}
+            className="home-ganpati-video"
+            loop
+            autoPlay
+            muted
+            playsInline
+            preload="metadata"
+            poster={IMG_HOME_GANPATI}
+          >
+            <source src={VID_HOME_GANPATI} type="video/mp4" />
+            आपला ब्राउझर व्हिडिओ प्ले करू शकत नाही.
+          </video>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════
           WARKARI VEENA SINGER — circular rotating
       ══════════════════════════════════ */}
       <div className="veena-section">
@@ -314,14 +360,14 @@ export default function InvitationCard() {
 
           <div className="wari-route-flow">
             {WARI_ROUTE.map((stop, i) => (
-              <div key={stop.name} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div key={stop.name} className="wari-stop-row">
                 <div className="wari-stop-card">
                   <span className="wari-stop-icon">{stop.icon}</span>
                   <span className="wari-stop-name">{stop.name}</span>
                   {stop.tag && <span className="wari-stop-tag">{stop.tag}</span>}
                 </div>
                 {i < WARI_ROUTE.length - 1 && (
-                  <span className="wari-arrow">→</span>
+                  <span className="wari-arrow">↓</span>
                 )}
               </div>
             ))}
