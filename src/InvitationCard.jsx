@@ -154,12 +154,6 @@ export default function InvitationCard() {
         <p className="shrirang-line">
           “ रंगी रंगला श्रीरंग ”
         </p>
-
-        {/* Scroll hint */}
-        <div className="scroll-hint" aria-hidden="true">
-          <span>खाली पाहा</span>
-          <span style={{ fontSize: 20 }}>↓</span>
-        </div>
       </div>
 
       {/* ══════════════════════════════════
