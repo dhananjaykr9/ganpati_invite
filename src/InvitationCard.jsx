@@ -164,7 +164,6 @@ export default function InvitationCard() {
 
         <div className="invite-box">
           <span className="invite-box-icon" aria-hidden="true">🕉️</span>
-          <p className="invite-heading">आग्रहाचे निमंत्रण</p>
 
           <p className="invite-para">
             दरवर्षी प्रमाणे आमच्या घरी<br />
