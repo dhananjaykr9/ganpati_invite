@@ -359,7 +359,7 @@ export default function InvitationCard() {
       </div>
 
       <div className="footer-chant">
-        🙏 &nbsp; राम कृष्ण हरि &nbsp; ✦ &nbsp; पांडुरंग हरि &nbsp; ✦ &nbsp; गणपती बाप्पा मोरया &nbsp; 🙏
+        || राम कृष्ण हरि || &nbsp; ✦ &nbsp; || गणपती बाप्पा मोरया ||
       </div>
 
     </div>
