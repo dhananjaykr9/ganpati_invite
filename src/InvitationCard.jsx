@@ -145,9 +145,9 @@ export default function InvitationCard() {
 
         {/* —— Sant Sankruti badge —— */}
         <div className="sant-sankruti-badge">
-          <span className="sant-pipe">∥</span>
+          <span className="sant-pipe">॥</span>
           <span className="sant-text">संत संस्कृती</span>
-          <span className="sant-pipe">∥</span>
+          <span className="sant-pipe">॥</span>
         </div>
 
         {/* —— Abhang line —— */}
@@ -329,7 +329,7 @@ export default function InvitationCard() {
           </div>
 
           <p className="wari-final-chant">
-            🏁 &nbsp; माझे माहेर पंढरी &nbsp; 🏁
+            🚩 &nbsp; माझे माहेर पंढरी &nbsp; 🚩
           </p>
 
           {/* ★ श्री संत नामदेव महाद्वार — Real Pandharpur Temple Photo */}
