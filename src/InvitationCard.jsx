@@ -263,7 +263,7 @@ export default function InvitationCard() {
             <h2 className="sthal-name">माता मंदिर वॉर्ड</h2>
             <p className="sthal-city">हिंगणघाट,<br />वर्धा जिल्हा, महाराष्ट्र</p>
             <a
-              href="https://maps.app.goo.gl/rqGV8Hkrgh3k1kvv6"
+              href="https://maps.app.goo.gl/g6ZhhBuoS5i1oRCcA"
               target="_blank"
               rel="noopener noreferrer"
               className="location-pin-btn"
