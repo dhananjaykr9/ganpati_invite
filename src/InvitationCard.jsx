@@ -3,22 +3,22 @@ import './InvitationCard.css';
 import WarkariDindi from './WarkariDindi';
 
 /* ─── Image paths ─── */
-const IMG_WARKARI_LOGO    = '/ChatGPT Image Sep 22, 2026, 10_44_39 AM.png';
-const IMG_WARKARI_MAN     = '/ChatGPT Image Sep 22, 2026, 10_45_46 AM.png';
-const IMG_VEENA_SINGER    = '/ChatGPT Image Sep 22, 2026, 10_48_18 AM.png';
-const IMG_GRANDPA_CHILD   = '/ChatGPT Image Sep 22, 2026, 10_55_30 AM.png';
-const IMG_GAN_GAN         = '/ChatGPT Image Sep 22, 2026, 10_56_48 AM.png';
-const IMG_NAMDEV_TEMPLE   = '/ChatGPT Image Sep 22, 2026, 11_10_22 AM.png';
-const IMG_AAMCHE_GHAR     = '/ChatGPT Image Sep 22, 2026, 11_15_21 AM.png';  // आमचे घर येथे — sthal section
+const IMG_WARKARI_LOGO = '/ChatGPT Image Sep 22, 2026, 10_44_39 AM.png';
+const IMG_WARKARI_MAN = '/ChatGPT Image Sep 22, 2026, 10_45_46 AM.png';
+const IMG_VEENA_SINGER = '/ChatGPT Image Sep 22, 2026, 10_48_18 AM.png';
+const IMG_GRANDPA_CHILD = '/ChatGPT Image Sep 22, 2026, 10_55_30 AM.png';
+const IMG_GAN_GAN = '/ChatGPT Image Sep 22, 2026, 10_56_48 AM.png';
+const IMG_NAMDEV_TEMPLE = '/ChatGPT Image Sep 22, 2026, 11_10_22 AM.png';
+const IMG_AAMCHE_GHAR = '/ChatGPT Image Sep 22, 2026, 11_15_21 AM.png';  // आमचे घर येथे — sthal section
 
 /* ─── Wari route stops ─── */
 const WARI_ROUTE = [
-  { name: 'हिंगणघाट', icon: '🏨️', tag: 'प्रारंभ'  },
-  { name: 'शेगाव',    icon: '🛕', tag: 'गजानन महाराज' },
-  { name: 'आळंदी',   icon: '🙏', tag: 'ज्ञानेश्वर महाराज'   },
-  { name: 'देहू',    icon: '🕉️', tag: 'तुकाराम महाराज'     },
-  { name: 'पुणे',    icon: '🏙️', tag: ''             },
-  { name: 'पंढरपूर', icon: '⭐', tag: 'माऊली'       },
+  { name: 'हिंगणघाट', icon: '🏨️', tag: 'प्रारंभ' },
+  { name: 'शेगाव', icon: '🛕', tag: 'गजानन महाराज' },
+  { name: 'आळंदी', icon: '🙏', tag: 'ज्ञानेश्वर महाराज' },
+  { name: 'देहू', icon: '🕉️', tag: 'तुकाराम महाराज' },
+  { name: 'पुणे', icon: '🏙️', tag: '' },
+  { name: 'पंढरपूर', icon: '⭐', tag: 'माऊली' },
 ];
 
 /* ─── Chant items (doubled for infinite ticker) ─── */
@@ -27,12 +27,12 @@ const CHANTS = [
   'माझे माहेर पंढरी',
   'पांडुरंग हरि',
   'गणपती बाप्पा मोरया',
-  'पुढच्या वर्षी लवकर या',
+  'गण गण गणात बोते',
   'राम कृष्ण हरि',
   'माझे माहेर पंढरी',
   'पांडुरंग हरि',
   'गणपती बाप्पा मोरया',
-  'पुढच्या वर्षी लवकर या',
+  'गण गण गणात बोते',
 ];
 
 /* ─── Section divider ─── */
@@ -129,7 +129,7 @@ export default function InvitationCard() {
         </div>
 
         <p className="hero-vitthal">
-          🙏 &nbsp; पांडुरंग हरि &nbsp; पांडुरंग हरि &nbsp; 🙏
+          || &nbsp;राम कृष्ण हरी ||
         </p>
 
         {/* पंढरीचे वारकरी logo */}
@@ -224,9 +224,9 @@ export default function InvitationCard() {
           <h2 className="bhojan-sec-title">🍽️ भोजन समारंभ 🍽️</h2>
 
           <div className="bhojan-card">
+            <p className="bhojan-anna-quote">“ अन्न हे पूर्णब्रह्म ”</p>
             <p className="bhojan-date-text">गुरुवार, दि. २४ सप्टेंबर २०२६</p>
             <p className="bhojan-time-text">सायं. ०७ ते १०</p>
-            <p className="bhojan-time-sub">सायंकाळी</p>
           </div>
         </div>
       </div>

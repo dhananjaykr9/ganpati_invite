@@ -473,6 +473,18 @@ section {
   margin-top: 4px;
 }
 
+.bhojan-anna-quote {
+  font-size: clamp(18px, 5vw, 26px);
+  font-style: italic;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(200,155,60,0.35);
+  width: 100%;
+}
+
 /* ────────────────────────────────────
    निमंत्रक SECTION
 ──────────────────────────────────── */
@@ -552,14 +564,14 @@ section {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 16px;
+  flex-wrap: nowrap; /* always side-by-side, even on mobile */
 }
 
-/* Image on left */
+/* Image on left — smaller on mobile so text fits */
 .aamche-ghar-side {
   flex: 0 0 auto;
-  width: clamp(140px, 38vw, 220px);
+  width: clamp(100px, 30vw, 200px);
 }
 
 .aamche-ghar-side .aamche-ghar-img {
@@ -569,11 +581,12 @@ section {
 
 /* Text on right */
 .sthal-text-col {
-  flex: 1 1 180px;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   text-align: left;
 }
 
